@@ -1,4 +1,4 @@
-mi_texto = "Esta es una prueba"
+mi_texto = "Esta es una prueba de commit"
 
 #resultado = mi_texto[-4]  #Devuelve la letra en la posición indicada
 
