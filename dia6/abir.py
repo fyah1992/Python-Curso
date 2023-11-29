@@ -1,10 +1,4 @@
-mi_archivo = open("prueba.txt")
+mi_archivo = open("prueba3.txt","w")
 
 #print(mi_archivo.read())
-linea1 = mi_archivo.readline()
-print(linea1.upper())
-linea2 = mi_archivo.readline()
-print(linea2)
-linea3 = mi_archivo.readline()
-print(linea3)
-mi_archivo.close()
+
