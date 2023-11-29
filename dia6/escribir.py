@@ -1,0 +1,7 @@
+archivo = open("prueba.txt","a")
+leer = open("prueba.txt","r")
+archivo.write("\n soy el nuevo texto")
+#archivo.writelines(["hola","mundo","prueba"])
+print(leer.read())
+leer.close()
+archivo.close()
