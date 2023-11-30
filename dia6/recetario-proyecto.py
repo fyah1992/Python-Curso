@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 base = Path.home()
 ruta_completa = Path(base,"Escritorio","recetas")
@@ -52,15 +53,49 @@ def crear_receta():
     abrir.close()
     print(f"Tu receta {nombre_fichero_nuevo} ha sido creada con existo")
 
+def crear_categoria():
+    nombre_categoria = input("Introduce el nombre de la categoría")
+    direccion_carpeta = Path(ruta_completa,nombre_categoria)
+    os.mkdir(direccion_carpeta)
+    if os.path.exists(direccion_carpeta):
+        print(f"La carpeta {nombre_categoria} ha sido creada")
+
+def eliminar_archivo():
+    ruta = elegir_categoria()
+    for receta in ruta.glob("**/*.txt"):
+        print(receta.name)
+    receta_elegida = input("¿Qué receta quieres eliminar?")
+    os.remove(Path(ruta,receta_elegida))
+    print(f"El fichero {receta_elegida} ha sido eliminado")
+
+def eliminar_categoria():
+    for directorio in ruta_completa.iterdir():
+        print(directorio.name)
+    nombre_categoria = input("Introduce el nombre de la categoría")
+    direccion_carpeta = Path(ruta_completa, nombre_categoria)
+    os.system(f"rm -r {direccion_carpeta}")
+    print(f"La categoria {nombre_categoria} ha sido eliminada")
 
 
-
-salir = 0
+salir = "0"
+bienvenida_usuario()
 while salir != "6":
-    bienvenida_usuario()
     cantidad_recetas()
     salir = elegir_opcion()
     if salir == "1":
+        os.system("clear")
         mostrar_recetas()
     elif salir == "2":
+        os.system("clear")
         crear_receta()
+    elif salir == "3":
+        os.system("clear")
+        crear_categoria()
+    elif salir == "4":
+        os.system("clear")
+        eliminar_archivo()
+    elif salir == "5":
+        os.system("clear")
+        eliminar_categoria()
+
+
