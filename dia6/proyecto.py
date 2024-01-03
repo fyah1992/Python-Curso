@@ -58,4 +58,4 @@ def inicio():
              dinero = int(input("Introduce el dinero a sacar"))
              mi_cliente.retirar(dinero)
     
-crear_cliente()
+incio()
